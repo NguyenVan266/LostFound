@@ -1,0 +1,133 @@
+
+
+/* Nav_admin */
+.nav_admin {
+  width: 15%;
+  background-color: #001529;
+  height: 100vh;
+  color: white;
+  padding: 0px;
+}
+
+.nav_admin ul {
+  padding: 0px;
+  margin: 0px;
+  padding-top: 15px;
+}
+
+.nav_admin ul li {
+  list-style: none;
+  padding: 10px 5px;
+  border-radius: 5px;
+}
+
+.nav_admin ul li a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  margin: 0px 10px;
+}
+
+.nav_admin ul li:hover {
+  background-color: rgba(255, 255, 255, 0.363);
+}
+
+.nav_admin svg {
+  width: 25px;
+  margin-left: 10px;
+  padding: 0px;
+  margin-right: 10px;
+}
+
+/* Home admin */
+.home_admin{
+  display: flex;
+}
+
+.content_admin{
+  width: 85%;
+  padding-left: 20px;
+}
+
+/* Create products */
+.create_products{
+  padding: 15px 0px;
+}
+
+.create_products .form_action form{
+  padding: 15px 0px;
+  margin: 0;
+  display: block;
+  font-size: 17px;
+}
+
+.create_products .form_action form .list_item{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.create_products .form_action form .list_item .item_form{
+  width: 40%;
+}
+
+.create_products .form_action form p{
+  padding: 0px 0px 5px 0px;
+}
+
+
+.create_products .form_action form input,
+.create_products .form_action form textarea{
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  padding: 5px 2px;
+  margin: 5px 0px;
+  width: 100%;
+  font-size: 15px;
+}
+
+.create_products .form_action form select{
+  outline: none;
+  font-size: 15px;
+}
+
+
+.create_products .form_action form button{
+  padding: 5px 15px;
+  border: 0px;
+  border-radius: 5px;
+  margin-top: 15px;
+  background-color: #001529;
+  border: none;
+  color: white;
+  
+}
+
+.create_products .form_action i{
+ font-size: 15px;
+  color: red;
+}
+
+/* START LIST PRODUCTS PAGE */
+.list_product_page{
+  width: 100%;
+}
+
+.list_product_page table{
+  margin-top: 50px;
+  width: 100%;
+  text-align: center;
+}
+
+.list_product_page table .desc{
+  text-align: left;
+}
+
+.list_product_page table tbody tr td{
+  border-top: 1px solid black;
+}
+
+.list_product_page table a{
+  text-decoration: none;
+  color: blue;
+}
