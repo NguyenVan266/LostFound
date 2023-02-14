@@ -6,7 +6,8 @@ import { useState } from "react";
 const Login = (props) => {
   const { handleLogin } = useAppContext();
   const [data, setData] = useState({});
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     await handleLogin(data);
   };
   return (

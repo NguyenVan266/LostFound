@@ -10,8 +10,15 @@ const Auth = () => {
   if (!isLogin) {
     body = <Outlet />;
   } else {
-    body = <Navigate to="/home" />;
+    switch (user?.role) {
+      case 1:
+        body = <Navigate to="/admin" />;
+        break;
+      default:
+        body = <Navigate to="/home" />;
+
   }
+}
   return <>{body}</>;
 };
 

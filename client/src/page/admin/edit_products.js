@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
 import { detail_Products, edit_Products, list_Products } from '../../api/products'
 import { upload_Image } from '../../api/upload_img'
+import { useAppContext } from '../../Context'
 
 export default function Edit_products_page() {
 
@@ -60,11 +61,12 @@ export default function Edit_products_page() {
    window.location.href = "../products"
  
   }
-
+  const {handleLogout}=useAppContext()
 
 
   return (
     <div className='create_products'>
+      <button onClick={handleLogout}> Đăng xuất </button>
         <h3>Sửa thông tin sản phẩm!</h3>
         {/* Form */}
         <div className='form_action'>
@@ -111,5 +113,6 @@ export default function Edit_products_page() {
               <i>* là trường thông tin bắt buộc!</i>
         </div>      
     </div>
+  
   )
 }

@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./page/Home";
 import About from "./page/About";
 import Login from "./page/login/Login";
+import Required from "./components/Required";
 import Contact from "./page/Contact";
 import Object from "./page/Object";
 import Auth from "./components/Auth";
@@ -35,7 +36,7 @@ function  App() {
         <Routes >
             <Route path = "/"element = { < Auth /> } >
             <Route path = "/" element = { < Login /> }/></Route> 
-            {/* <Route path = "/"element = { < Required /> } > */}
+            <Route path = "/"element = { < Required /> } >
                 <Route path = "/home" element = { < Home /> }/> 
                 <Route path = "/about" element = { < About /> }/> 
                 <Route path = "/contact" element = { < Contact /> }/> 
@@ -51,6 +52,7 @@ function  App() {
                 <Route path="products/add" element={<Product_page/>}></Route>
                 <Route path="products/edit/:id_product" element={<Edit_products_page/>}></Route>
             </Route>
+        </Route>
         </Routes> 
     </div >
         );

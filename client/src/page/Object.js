@@ -69,7 +69,7 @@ const Object = (props) => {
                 <div className="filter-status">BỘ LỌC TÌM KIẾM</div>
               </div>
 
-              <div className="group-header">Theo danh mục</div>
+              <div className="group-header">Theo phân loại</div>
               <div className="group-body">
                 <div className="form-check">
                   <input
@@ -80,7 +80,7 @@ const Object = (props) => {
                     value="something"
                   />
                   <label className="form-check-label" for="check1">
-                    Option 1
+                  Học liệu
                   </label>
                 </div>
                 <div className="form-check">
@@ -92,26 +92,40 @@ const Object = (props) => {
                     value="something"
                   />
                   <label className="form-check-label" for="check2">
-                    Option 2
+                  Đồ dùng cá nhân giá trị thấp
                   </label>
                 </div>
                 <div className="form-check">
                   <input type="checkbox" className="form-check-input" id="check3" />
                   <label className="form-check-label" for="check3">
-                    Option 3
+                  Đồ dùng cá nhân giá trị cao
                   </label>
                 </div>
 
                 <div className="form-check">
                   <input type="checkbox" className="form-check-input" id="check4" />
                   <label className="form-check-label" for="check4">
-                    Option 4
+                  Đồ vật tính nhận diện xác định
+                  </label>
+                </div>
+
+                <div className="form-check">
+                  <input type="checkbox" className="form-check-input" id="check4" />
+                  <label className="form-check-label" for="check4">
+                  Đồ vật khó nhận diện cho người ngoài
+                  </label>
+                </div>
+
+                <div className="form-check">
+                  <input type="checkbox" className="form-check-input" id="check4" />
+                  <label className="form-check-label" for="check4">
+                  Đồ vật khác
                   </label>
                 </div>
                 <hr />
               </div>
 
-              <div className="group-header">Theo sản phẩm</div>
+              <div className="group-header">Theo màu sắc</div>
               <div className="group-body">
                 <div className="form-check">
                   <input
@@ -121,7 +135,7 @@ const Object = (props) => {
                     name="option1"
                     value="something"
                   />
-                  <label className="form-check-label">Option 1</label>
+                  <label className="form-check-label">Đen</label>
                 </div>
                 <div className="form-check">
                   <input
@@ -131,16 +145,16 @@ const Object = (props) => {
                     name="option2"
                     value="something"
                   />
-                  <label className="form-check-label">Option 2</label>
+                  <label className="form-check-label">Xanh</label>
                 </div>
                 <div className="form-check">
                   <input type="checkbox" className="form-check-input" id="check3" />
-                  <label className="form-check-label">Option 3</label>
+                  <label className="form-check-label">Đỏ</label>
                 </div>
 
                 <div className="form-check">
                   <input type="checkbox" className="form-check-input" id="check4" />
-                  <label className="form-check-label">Option 4</label>
+                  <label className="form-check-label">Vàng</label>
                 </div>
                 <hr />
               </div>
