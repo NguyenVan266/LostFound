@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import Menu from "../components/Menu";
 import { useAppContext } from "../Context";
 import { Link } from "react-router-dom";
+import { getfb } from "../api/auth";
 
 const Object = (props) => {
   const { list_products } = props;
   const [name, setName] = useState("");
   const [products, setProducts] = useState(list_products);
+  const [fb, setFb] = useState([]);
   const { handleLogout } = useAppContext();
   const onValueChange = (e) => {
     setName(e.target.value);
@@ -37,6 +39,12 @@ const Object = (props) => {
     });
     setProducts(data_search);
   };
+
+  useEffect(() => {
+    getfb().then((res) => {
+      setFb(res.data);
+    });
+  }, []);
 
   return (
     <div>
@@ -193,7 +201,7 @@ const Object = (props) => {
                     name="option1"
                     value="something"
                     onClick={() => {
-                      onSelectColor(1);
+                      onSelectColor(4);
                     }}
                   />
                   <label className="form-check-label">Đen</label>
@@ -206,7 +214,7 @@ const Object = (props) => {
                     name="option2"
                     value="something"
                     onClick={() => {
-                      onSelectColor(2);
+                      onSelectColor(3);
                     }}
                   />
                   <label className="form-check-label">Xanh</label>
@@ -217,7 +225,7 @@ const Object = (props) => {
                     className="form-check-input"
                     id="check3"
                     onClick={() => {
-                      onSelectColor(3);
+                      onSelectColor(1);
                     }}
                   />
                   <label className="form-check-label">Đỏ</label>
@@ -229,7 +237,7 @@ const Object = (props) => {
                     className="form-check-input"
                     id="check4"
                     onClick={() => {
-                      onSelectColor(4);
+                      onSelectColor(2);
                     }}
                   />
                   <label className="form-check-label">Vàng</label>
@@ -268,51 +276,19 @@ const Object = (props) => {
               </a>
             </div>
             <ul id="list-comment">
-              <li className="item">
-                <div className="avatar">
-                  <img src="/avatar_1.png" alt="" />
-                </div>
+              {fb?.map((item) => (
+                <li className="item">
+                  <div className="avatar">
+                    <img src="/avatar_1.png" alt="" />
+                  </div>
 
-                <div className="name">Nguyễn Thị Hồng Vân</div>
+                  <div className="name">{item.name}</div>
 
-                <div className="text">
-                  <p>
-                    Rất cảm ơn ai đó đã nhặt được và gửi trả mình chiếc ví màu
-                    hồng mà mình lỡ để quên trên giảng đường S3 hôm trước. Cảm
-                    ơn bạn rất nhiều.
-                  </p>
-                </div>
-              </li>
-              <li className="item">
-                <div className="avatar">
-                  <img src="/avatar_2.png" alt="" />
-                </div>
-
-                <div className="name">Ngọc Thanh Vân</div>
-
-                <div className="text">
-                  <p>
-                    Rất cảm ơn ai đó đã nhặt được và gửi trả mình chiếc ví màu
-                    hồng mà mình lỡ để quên trên giảng đường S3 hôm trước. Cảm
-                    ơn bạn rất nhiều.
-                  </p>
-                </div>
-              </li>
-              <li className="item">
-                <div className="avatar">
-                  <img src="/avatar_3.png" alt="" />
-                </div>
-
-                <div className="name">Nguyễn Trần Vi</div>
-
-                <div className="text">
-                  <p>
-                    Rất cảm ơn ai đó đã nhặt được và gửi trả mình chiếc ví màu
-                    hồng mà mình lỡ để quên trên giảng đường S3 hôm trước. Cảm
-                    ơn bạn rất nhiều.
-                  </p>
-                </div>
-              </li>
+                  <div className="text">
+                    <p>{item.fback}</p>
+                  </div>
+                </li>
+              ))}
             </ul>
             <div className="next-cmt">
               <a href="#">

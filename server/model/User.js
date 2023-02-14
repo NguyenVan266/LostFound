@@ -26,15 +26,15 @@ const UserSchema = new mongoose.Schema({
       2, // receivers
       3, // colleter
     ],
-    default: "user",
   },
-  fback:[{
-    name: String,
-    email: String,
-    phone: String,
-    fback: String,
-  }]
-}
-);
+  fback: [
+    {
+      name: String,
+      email: String,
+      phone: String,
+      fback: String,
+    },
+  ],
+});
 
 module.exports = mongoose.model("User", UserSchema);

@@ -25,3 +25,21 @@ export const setAuthHeader = (token) => {
     delete axios.defaults.headers.common["Authorization"];
   }
 };
+
+export const sendfb = async (data) => {
+  try {
+    const response = await axios.post("/sendfb", data);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getfb = async () => {
+  try {
+    const response = await axios.get("/getfb");
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

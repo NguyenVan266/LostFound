@@ -77,11 +77,21 @@ module.exports.createUser = async (req, res, next) => {
 };
 
 module.exports.sendfb = async (req, res, next) => {
-  const user = await User.findOne({ role: 1 });
-  user.fback = req.body.fback;
-  await user.save();
+  const users = await User.find({ role: 1 });
+  for (const user of users) {
+    user.fback = req.body;
+    user.save();
+  }
   return res.status(200).json({
     success: true,
-    data: user,
+    data: users,
+  });
+};
+
+module.exports.getfb = async (req, res, next) => {
+  const user = await User.findOne({ role: 1 });
+  return res.status(200).json({
+    success: true,
+    data: user.fback,
   });
 };
