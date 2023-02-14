@@ -21,6 +21,7 @@ appRoute.post('/products', create_product)
 appRoute.delete('/products/:id', remove_product)
 appRoute.patch('/products/:id', update_product)
 appRoute.get('/products/:id', detail_product)
+appRoute.get("/sendfb")
 
 
 

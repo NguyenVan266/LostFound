@@ -20,7 +20,7 @@ const UserSchema = new mongoose.Schema({
   },
   CCCD: { type: String },
   role: {
-    type: String,
+    type: Number,
     enum: [
       1, // admin
       2, // receivers
