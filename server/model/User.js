@@ -28,6 +28,13 @@ const UserSchema = new mongoose.Schema({
     ],
     default: "user",
   },
-});
+  fback:[{
+    name: String,
+    email: String,
+    phone: String,
+    fback: String,
+  }]
+}
+);
 
 module.exports = mongoose.model("User", UserSchema);
