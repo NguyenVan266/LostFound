@@ -10,15 +10,10 @@ const cors = require("cors");
 dotenv.config();
 const corsOptions = {
   //To allow requests from client
-  origin: [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-  ],
+  origin: ["http://localhost:3000", "http://127.0.0.1:3000"],
   credentialsx: true,
   exposedHeaders: ["set-cookie"],
 };
-
-
 
 app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,7 +21,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", appRoute);
-
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "Hello World" });
+});
 
 mongoose.connect(process.env.MONGDB_URL, () => {
   console.log("connect to mongoose db");
