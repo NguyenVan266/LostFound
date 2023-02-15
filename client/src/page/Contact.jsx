@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Menu from "../components/Menu";
 import { useAppContext } from "../Context";
 import { sendfb } from "../api/auth";
+import Footer from "../components/Footer";
 
 const Contact = (props) => {
   const { handleLogout } = useAppContext();
@@ -22,6 +23,7 @@ const Contact = (props) => {
     const response = await sendfb(data);
     console.log(response);
   };
+  
   return (
     <div>
       <div id="wrapper">
@@ -141,40 +143,7 @@ const Contact = (props) => {
         </form>
       </article>
 
-      <div id="footer">
-        <div className="box">
-          <div className="logo">
-            <img src="/logo.png" alt="" />
-          </div>
-          <p>
-            Hỗ trợ nhiệt tình trao trả các đồ vật thất lạc trong khu vực trường
-          </p>
-        </div>
-        <div className="box">
-          <h3>NỘI DUNG</h3>
-          <ul className="quick-menu">
-            <div className="item">
-              <a href="Home.html">Trang chủ</a>
-            </div>
-            <div className="item">
-              <a href="Object.html">Sản phẩm</a>
-            </div>
-            <div className="item">
-              <a href="About.html">Thông tin</a>
-            </div>
-            <div className="item">
-              <a href="Contact.html">Phản hồi</a>
-            </div>
-          </ul>
-        </div>
-        <div className="box">
-          <h3>LIÊN HỆ</h3>
-          <form action="">
-            <input type="text" placeholder="Địa chỉ email" />
-            <button>Nhận tin</button>
-          </form>
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 };

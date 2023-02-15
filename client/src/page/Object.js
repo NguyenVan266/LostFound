@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Menu from "../components/Menu";
 import { useAppContext } from "../Context";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
+import { getfb } from "../api/auth";
 
 const Object = (props) => {
   const { list_products } = props;
   const [products, setProducts] = React.useState(list_products);
+  const [comments, setComments] = React.useState([]);
   const { handleLogout } = useAppContext();
   const [search, setSearch] = React.useState("");
   const onValueChange = (e) => {
@@ -34,6 +37,12 @@ const Object = (props) => {
     console.log(searchProducts);
     setProducts(searchProducts);
   };
+
+  useEffect(() => {
+    getfb().then((data) => {
+      setComments(data.data);
+    });
+  }, []);
 
   return (
     <div>
@@ -334,51 +343,19 @@ const Object = (props) => {
               </a>
             </div>
             <ul id="list-comment">
-              <li className="item">
-                <div className="avatar">
-                  <img src="/avatar_1.png" alt="" />
-                </div>
+              {comments?.map((item) => (
+                <li className="item">
+                  <div className="avatar">
+                    <img src="/avatar_1.png" alt="" />
+                  </div>
 
-                <div className="name">Nguyễn Thị Hồng Vân</div>
+                  <div className="name">{item?.name}</div>
 
-                <div className="text">
-                  <p>
-                    Rất cảm ơn ai đó đã nhặt được và gửi trả mình chiếc ví màu
-                    hồng mà mình lỡ để quên trên giảng đường S3 hôm trước. Cảm
-                    ơn bạn rất nhiều.
-                  </p>
-                </div>
-              </li>
-              <li className="item">
-                <div className="avatar">
-                  <img src="/avatar_2.png" alt="" />
-                </div>
-
-                <div className="name">Ngọc Thanh Vân</div>
-
-                <div className="text">
-                  <p>
-                    Rất cảm ơn ai đó đã nhặt được và gửi trả mình chiếc ví màu
-                    hồng mà mình lỡ để quên trên giảng đường S3 hôm trước. Cảm
-                    ơn bạn rất nhiều.
-                  </p>
-                </div>
-              </li>
-              <li className="item">
-                <div className="avatar">
-                  <img src="/avatar_3.png" alt="" />
-                </div>
-
-                <div className="name">Nguyễn Trần Vi</div>
-
-                <div className="text">
-                  <p>
-                    Rất cảm ơn ai đó đã nhặt được và gửi trả mình chiếc ví màu
-                    hồng mà mình lỡ để quên trên giảng đường S3 hôm trước. Cảm
-                    ơn bạn rất nhiều.
-                  </p>
-                </div>
-              </li>
+                  <div className="text">
+                    <p>{item?.fback}</p>
+                  </div>
+                </li>
+              ))}
             </ul>
             <div className="next-cmt">
               <a href="#">
@@ -388,41 +365,7 @@ const Object = (props) => {
           </div>
         </div>
 
-        <div id="footer">
-          <div className="box">
-            <div className="logo">
-              <img src="/logo.png" alt="" />
-            </div>
-            <p>
-              Hỗ trợ nhiệt tình trao trả các đồ vật thất lạc trong khu vực
-              trường
-            </p>
-          </div>
-          <div className="box">
-            <h3>NỘI DUNG</h3>
-            <ul className="quick-menu">
-              <div className="item">
-                <a href="Home.html">Trang chủ</a>
-              </div>
-              <div className="item">
-                <a href="Object.html">Sản phẩm</a>
-              </div>
-              <div className="item">
-                <a href="About.html">Thông tin</a>
-              </div>
-              <div className="item">
-                <a href="Contact.html">Phản hồi</a>
-              </div>
-            </ul>
-          </div>
-          <div className="box">
-            <h3>LIÊN HỆ</h3>
-            <form action="">
-              <input type="text" placeholder="Địa chỉ email" />
-              <button>Nhận tin</button>
-            </form>
-          </div>
-        </div>
+        <Footer />
       </div>
     </div>
   );

@@ -3,9 +3,11 @@ import PropTypes from "prop-types";
 import { Link, useNavigate } from "react-router-dom";
 import Menu from "../components/Menu";
 import { useAppContext } from "../Context";
+import Footer from "../components/Footer";
 
 const Home = (props) => {
   const { handleLogout } = useAppContext();
+  const navigate = useNavigate();
   return (
     <div id="wrapper">
       <div id="header">
@@ -40,40 +42,7 @@ const Home = (props) => {
         <div className="to-bottom"></div>
       </div>
 
-      
-      <div id="footer">
-        <div className="box">
-          <div className="logo">
-            <img src="/logo.png" alt="" />
-          </div>
-          <p>
-            Hỗ trợ nhiệt tình trao trả các đồ vật thất lạc trong khu vực trường
-          </p>
-        </div>
-        <div className="box">
-          <h3>NỘI DUNG</h3>
-          <ul className="quick-menu">
-            <div className="item">
-              <a href="Home.jsx">Trang chủ</a>
-            </div>
-            <div className="item">
-              <a href="Object.jsx">Sản phẩm</a>
-            </div>
-            <div className="item">
-              <a href="About.jsx">Thông tin</a>
-            </div>
-            <div className="item">
-              <a href="Contact.jsx">Phản hồi</a>
-            </div>
-          </ul>
-        </div>
-        <div className="box">
-          <h3>LIÊN HỆ</h3>
-          <form action="">
-            <button href="Contact.jsx">Gửi phản hồi ngay</button>
-          </form>
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 };

@@ -7,7 +7,7 @@ const Login = (props) => {
   const { handleLogin } = useAppContext();
   const [data, setData] = useState({});
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     await handleLogin(data);
   };
   return (
@@ -59,8 +59,8 @@ const Login = (props) => {
                   />
                 </div>
                 <button onClick={handleSubmit} className="btn solid">
-                  Đăng nhập 
-              </button>
+                  Đăng nhập
+                </button>
               </form>
 
               <form action="" className="sign-up-form">
@@ -85,21 +85,17 @@ const Login = (props) => {
         <div className="panels-container">
           <div className="panel left-panel">
             <div className="content">
-              <h3>Chưa có tài khoản?</h3>
+              <h3></h3>
 
-              <button className="btn transparent" id="sign-up-btn">
-                Đăng ký
-              </button>
+              <button className="btn transparent" id="sign-up-btn"></button>
             </div>
             <img src="/img/log.svg" className="image" alt="" />
           </div>
 
           <div className="panel right-panel">
             <div className="content">
-              <h3>Đã có tài khoản?</h3>
-              <button className="btn transparent" id="sign-in-btn">
-                Đăng nhập
-              </button>
+              <h3></h3>
+              <button className="btn transparent" id="sign-in-btn"></button>
             </div>
             <img src="/img/register.svg" className="image" alt="" />
           </div>

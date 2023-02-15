@@ -1,6 +1,7 @@
 import React from "react";
 import Menu from "../components/Menu";
 import { useAppContext } from "../Context";
+import Footer from "../components/Footer";
 
 const About = (props) => {
   const { handleLogout } = useAppContext();
@@ -102,7 +103,7 @@ const About = (props) => {
         đồ vật, bên quản lí sẽ đẩy dữ liệu đồ vật a nhận kí gửi lên website
       </p>
       <p>
-       - Người B được cho là chủ nhân của đồ vật a, thông qua website biết được
+        - Người B được cho là chủ nhân của đồ vật a, thông qua website biết được
         đồ vật mình đã làm mất. Tiến hành đến bên trung gian nhận đồ trực tiếp
       </p>
 
@@ -114,7 +115,6 @@ const About = (props) => {
         dài, không tiếp nhận một số đồ vật như: đồ ăn thức uống, đồ vật không
         còn tinh sử dụng ( chai nhựa dùng 1 lần, giày dép rách,…)
       </p>
-
 
       <br></br>
       <br></br>
@@ -131,7 +131,6 @@ const About = (props) => {
         <li>- Đồ vật khác</li>
       </ul>
 
-
       <br></br>
       <br></br>
       <h3>
@@ -140,9 +139,9 @@ const About = (props) => {
       </h3>
 
       <p>
-        - Khi đến nhận yêu cầu ghi lại và ảnh chụp của CCCD/CMND, trong trường hợp
-        không có CCCD/CMND thì dùng xác thực tương đương là: Ảnh chụp thông tin
-        sinh viên/giảng viên trên hệ thống nhà trường
+        - Khi đến nhận yêu cầu ghi lại và ảnh chụp của CCCD/CMND, trong trường
+        hợp không có CCCD/CMND thì dùng xác thực tương đương là: Ảnh chụp thông
+        tin sinh viên/giảng viên trên hệ thống nhà trường
       </p>
       <p>
         - Đồng thời khi nhận sẽ có văn bản pháp lý đi kèm để người nhận và bên
@@ -150,7 +149,6 @@ const About = (props) => {
         chịu trách nhiệm về đồ vật đã nhận nếu có bất cứ sự việc, tố cáo nào xảy
         ra trước pháp luật.
       </p>
-
 
       <br></br>
       <br></br>
@@ -161,10 +159,10 @@ const About = (props) => {
           kho: CCCD, thẻ sinh viên, Bằng LX
         </li>
         <li>
-          - Với những đồ vật cá nhân còn tinh sử dụng và không có tính nhận diện,
-          lưu trữ trong khoảng 2 tháng, hết thời gian đó sẽ theo từng đợt trong
-          năm quyên góp cho các tổ chức từ thiện: Quần áo, giày dép, ô, binh
-          nước, quạt,…
+          - Với những đồ vật cá nhân còn tinh sử dụng và không có tính nhận
+          diện, lưu trữ trong khoảng 2 tháng, hết thời gian đó sẽ theo từng đợt
+          trong năm quyên góp cho các tổ chức từ thiện: Quần áo, giày dép, ô,
+          binh nước, quạt,…
         </li>
         <li>
           - Các đồ vật khác sẽ tùy theo tình hình mà có thời gian lưu trữ khác
@@ -172,39 +170,7 @@ const About = (props) => {
         </li>
       </ul>
 
-      <div id="footer">
-        <div className="box">
-          <div className="logo">
-            <img src="/logo.png" alt="" />
-          </div>
-          <p>
-            Hỗ trợ nhiệt tình trao trả các đồ vật thất lạc trong khu vực trường
-          </p>
-        </div>
-        <div className="box">
-          <h3>NỘI DUNG</h3>
-          <ul className="quick-menu">
-            <div className="item">
-              <a href="Home.jsx">Trang chủ</a>
-            </div>
-            <div className="item">
-              <a href="Object.jsx">Sản phẩm</a>
-            </div>
-            <div className="item">
-              <a href="About.jsx">Thông tin</a>
-            </div>
-            <div className="item">
-              <a href="Contact.jsx">Phản hồi</a>
-            </div>
-          </ul>
-        </div>
-        <div className="box">
-          <h3>LIÊN HỆ</h3>
-          <form action="">
-            <button href="Contact.jsx">Gửi phản hồi ngay</button>
-          </form>
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 };
