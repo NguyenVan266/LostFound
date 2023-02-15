@@ -21,6 +21,7 @@ const productSchema = mongoose.Schema({
   color: {
     type: Number,
     enum: [
+<<<<<<< HEAD
       1, // "Xanh",
       2, // "Đỏ",
       3, // "Tím",
@@ -30,6 +31,12 @@ const productSchema = mongoose.Schema({
       7, //"Đen"
       8, // "Trắng"
       9, //"Còn lại"
+=======
+      1, // "Đỏ",
+      2, // "Vàng",
+      3, // "Xanh",
+      4, // "Đen",
+>>>>>>> 1d6cfaae484776c67731ab23e2979ccca447215d
     ],
   },
   category: {

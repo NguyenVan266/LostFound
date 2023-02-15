@@ -176,6 +176,11 @@ const Object = (props) => {
                   <input type="checkbox" className="form-check-input" id="check4" />
                   <label className="form-check-label">Trắng</label>
                 </div>
+
+                <div className="form-check">
+                  <input type="checkbox" className="form-check-input" id="check4" />
+                  <label className="form-check-label">Màu khác</label>
+                </div>
                 <hr />
               </div>
 
