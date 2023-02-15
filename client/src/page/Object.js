@@ -325,7 +325,7 @@ const Object = (props) => {
                     Màu sắc: <i>{item.color}</i>
                   </p>
                   <p className="desc">
-                    Chi tiết: <i>{item.detail}</i>
+                    Chi tiết: <i>{item.description}</i>
                   </p>
                 </div>
               ))}

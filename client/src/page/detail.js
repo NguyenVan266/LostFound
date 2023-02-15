@@ -37,7 +37,7 @@ export default function Detail_page(props) {
           <h3>{info.name}</h3>
           <p>Màu sắc: {info.name}</p>
           <p>Địa chỉ: {info.address}</p>
-          <p>Mô tả: {info.description}</p>
+          <p>Mô tả: {info.detail}</p>
         </div>
       </div>
     </div>

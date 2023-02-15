@@ -21,7 +21,7 @@ export default function Product_page() {
 
     // console.log( url());
 
-    const new_product = await {
+    const new_product = {
       name: document.querySelector(".name").value,
       category: document.querySelector(".category").value,
       address: document.querySelector(".address").value,
