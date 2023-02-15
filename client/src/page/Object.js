@@ -135,7 +135,7 @@ const Object = (props) => {
                     name="option1"
                     value="something"
                   />
-                  <label className="form-check-label">Đen</label>
+                  <label className="form-check-label">Xanh</label>
                 </div>
                 <div className="form-check">
                   <input
@@ -145,16 +145,36 @@ const Object = (props) => {
                     name="option2"
                     value="something"
                   />
-                  <label className="form-check-label">Xanh</label>
+                  <label className="form-check-label">Đỏ</label>
                 </div>
                 <div className="form-check">
                   <input type="checkbox" className="form-check-input" id="check3" />
-                  <label className="form-check-label">Đỏ</label>
+                  <label className="form-check-label">Tím</label>
                 </div>
 
                 <div className="form-check">
                   <input type="checkbox" className="form-check-input" id="check4" />
                   <label className="form-check-label">Vàng</label>
+                </div>
+
+                <div className="form-check">
+                  <input type="checkbox" className="form-check-input" id="check4" />
+                  <label className="form-check-label">Hồng</label>
+                </div>
+
+                <div className="form-check">
+                  <input type="checkbox" className="form-check-input" id="check4" />
+                  <label className="form-check-label">Nâu</label>
+                </div>
+
+                <div className="form-check">
+                  <input type="checkbox" className="form-check-input" id="check4" />
+                  <label className="form-check-label">Đen</label>
+                </div>
+
+                <div className="form-check">
+                  <input type="checkbox" className="form-check-input" id="check4" />
+                  <label className="form-check-label">Trắng</label>
                 </div>
                 <hr />
               </div>
