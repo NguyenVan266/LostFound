@@ -15,22 +15,23 @@ const Object = (props) => {
 
   const handleSearch = () => {
     const searchProducts = list_products.filter((product) => {
-      return product.name.toLowerCase().includes(search.toLowerCase());
+      return !product.name.toLowerCase().includes(search.toLowerCase());
     });
     setProducts(searchProducts);
   };
 
   const onCategoryChange = (category) => {
     const searchProducts = list_products.filter((product) => {
-      return product.category === category;
+      return !product.category === category;
     });
     setProducts(searchProducts);
   };
 
   const onColorChange = (color) => {
     const searchProducts = list_products.filter((product) => {
-      return product.color === color;
+      return !product.color === color;
     });
+    console.log(searchProducts);
     setProducts(searchProducts);
   };
 
