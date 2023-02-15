@@ -4,18 +4,36 @@ import { useAppContext } from "../Context";
 import { Link } from "react-router-dom";
 
 const Object = (props) => {
-
-  const {list_products} = props
-
+  const { list_products } = props;
+  const [products, setProducts] = React.useState(list_products);
   const { handleLogout } = useAppContext();
+  const [search, setSearch] = React.useState("");
+  const onValueChange = (e) => {
+    const { value } = e.target;
+    setSearch(value);
+  };
 
-  const search = (e) => {
-    e.preventDefault()
+  const handleSearch = () => {
+    const searchProducts = list_products.filter((product) => {
+      return product.name.toLowerCase().includes(search.toLowerCase());
+    });
+    setProducts(searchProducts);
+  };
 
-    const key_search = document.querySelector(".text_search").value
+  const onCategoryChange = (category) => {
+    const searchProducts = list_products.filter((product) => {
+      return product.category === category;
+    });
+    setProducts(searchProducts);
+  };
 
-    props.setSearch(key_search)
-  }
+  const onColorChange = (color) => {
+    const searchProducts = list_products.filter((product) => {
+      return product.color === color;
+    });
+    setProducts(searchProducts);
+  };
+
   return (
     <div>
       <div id="wrapper">
@@ -55,10 +73,12 @@ const Object = (props) => {
 
           <div className="col-md-8 mx-auto">
             <div className="input-group pb-5">
-              <form onSubmit={(e) => search(e)} className="form_search">
-                <input className="text_search" placeholder="Tìm kiếm.."/>
-                <button>Tìm</button>
-              </form>
+              <input
+                className="text_search"
+                placeholder="Tìm kiếm.."
+                onChange={onValueChange}
+              />
+              <button onClick={handleSearch}>Tìm</button>
             </div>
           </div>
 
@@ -78,9 +98,12 @@ const Object = (props) => {
                     id="check1"
                     name="option1"
                     value="something"
+                    onClick={() => {
+                      onCategoryChange(1);
+                    }}
                   />
                   <label className="form-check-label" for="check1">
-                  Học liệu
+                    Học liệu
                   </label>
                 </div>
                 <div className="form-check">
@@ -90,36 +113,69 @@ const Object = (props) => {
                     id="check2"
                     name="option2"
                     value="something"
+                    onClick={() => {
+                      onCategoryChange(2);
+                    }}
                   />
                   <label className="form-check-label" for="check2">
-                  Đồ dùng cá nhân giá trị thấp
+                    Đồ dùng cá nhân giá trị thấp
                   </label>
                 </div>
                 <div className="form-check">
-                  <input type="checkbox" className="form-check-input" id="check3" />
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="check3"
+                    name="option3"
+                    value="something"
+                    onClick={() => {
+                      onCategoryChange(3);
+                    }}
+                  />
                   <label className="form-check-label" for="check3">
-                  Đồ dùng cá nhân giá trị cao
+                    Đồ dùng cá nhân giá trị cao
                   </label>
                 </div>
 
                 <div className="form-check">
-                  <input type="checkbox" className="form-check-input" id="check4" />
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="check4"
+                    onClick={() => {
+                      onCategoryChange(4);
+                    }}
+                  />
                   <label className="form-check-label" for="check4">
-                  Đồ vật tính nhận diện xác định
+                    Đồ vật tính nhận diện xác định
                   </label>
                 </div>
 
                 <div className="form-check">
-                  <input type="checkbox" className="form-check-input" id="check4" />
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="check4"
+                    onClick={() => {
+                      onCategoryChange(5);
+                    }}
+                  />
                   <label className="form-check-label" for="check4">
-                  Đồ vật khó nhận diện cho người ngoài
+                    Đồ vật khó nhận diện cho người ngoài
                   </label>
                 </div>
 
                 <div className="form-check">
-                  <input type="checkbox" className="form-check-input" id="check4" />
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="check4"
+                    onClick={() => {
+                      onCategoryChange(6);
+                    }}
+                  />
                   <label className="form-check-label" for="check4">
-                  Đồ vật khác
+                    Đồ vật khác
                   </label>
                 </div>
                 <hr />
@@ -134,6 +190,9 @@ const Object = (props) => {
                     id="check1"
                     name="option1"
                     value="something"
+                    onClick={() => {
+                      onColorChange(1);
+                    }}
                   />
                   <label className="form-check-label">Xanh</label>
                 </div>
@@ -144,41 +203,95 @@ const Object = (props) => {
                     id="check2"
                     name="option2"
                     value="something"
+                    onClick={() => {
+                      onColorChange(2);
+                    }}
                   />
                   <label className="form-check-label">Đỏ</label>
                 </div>
                 <div className="form-check">
-                  <input type="checkbox" className="form-check-input" id="check3" />
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="check3"
+                    name="option3"
+                    value="something"
+                    onClick={() => {
+                      onColorChange(3);
+                    }}
+                  />
                   <label className="form-check-label">Tím</label>
                 </div>
 
                 <div className="form-check">
-                  <input type="checkbox" className="form-check-input" id="check4" />
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="check4"
+                    onClick={() => {
+                      onColorChange(4);
+                    }}
+                  />
                   <label className="form-check-label">Vàng</label>
                 </div>
 
                 <div className="form-check">
-                  <input type="checkbox" className="form-check-input" id="check4" />
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="check4"
+                    onClick={() => {
+                      onColorChange(5);
+                    }}
+                  />
                   <label className="form-check-label">Hồng</label>
                 </div>
 
                 <div className="form-check">
-                  <input type="checkbox" className="form-check-input" id="check4" />
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="check4"
+                    onClick={() => {
+                      onColorChange(6);
+                    }}
+                  />
                   <label className="form-check-label">Nâu</label>
                 </div>
 
                 <div className="form-check">
-                  <input type="checkbox" className="form-check-input" id="check4" />
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="check4"
+                    onClick={() => {
+                      onColorChange(7);
+                    }}
+                  />
                   <label className="form-check-label">Đen</label>
                 </div>
 
                 <div className="form-check">
-                  <input type="checkbox" className="form-check-input" id="check4" />
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="check4"
+                    onClick={() => {
+                      onColorChange(8);
+                    }}
+                  />
                   <label className="form-check-label">Trắng</label>
                 </div>
 
                 <div className="form-check">
-                  <input type="checkbox" className="form-check-input" id="check4" />
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="check4"
+                    onClick={() => {
+                      onColorChange(9);
+                    }}
+                  />
                   <label className="form-check-label">Màu khác</label>
                 </div>
                 <hr />
@@ -186,25 +299,26 @@ const Object = (props) => {
 
               <div className="group-header"></div>
               <div className="group-body">
-                
                 <hr />
               </div>
             </div>
             <div className="col-9 list_products">
               {/* START LIST PRODUCTS */}
 
-              {
-                list_products.map((item) => 
-                  <div className="item_products">
-                      <img src={item.img} width="100%" />
-                      <b className="name">
-                        <Link to={`./${item._id}`}>{item.name}</Link>
-                      </b>
-                      <p className="style_color">Màu sắc: <i>{item.color}</i></p>
-                      <p className="desc">Chi tiết: <i>{item.detail}</i></p>
-                  </div>
-                )
-              }
+              {products?.map((item) => (
+                <div className="item_products">
+                  <img src={item.img} width="100%" />
+                  <b className="name">
+                    <Link to={`./${item._id}`}>{item.name}</Link>
+                  </b>
+                  <p className="style_color">
+                    Màu sắc: <i>{item.color}</i>
+                  </p>
+                  <p className="desc">
+                    Chi tiết: <i>{item.detail}</i>
+                  </p>
+                </div>
+              ))}
 
               {/* END START LIST PRODUCTS */}
             </div>
