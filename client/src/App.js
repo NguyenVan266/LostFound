@@ -19,7 +19,10 @@ import { useAppContext } from "./Context";
 
 function App() {
   const [products, setProducts] = useState([]);
-  const { handleLogout } = useAppContext();
+  const {
+    handleLogout,
+    state: { user },
+  } = useAppContext();
   useEffect(() => {
     list_Products().then((data) => {
       setProducts(data.data);
@@ -36,7 +39,16 @@ function App() {
 
   return (
     <div>
-      <button onClick={handleLogout}>Dang xuat</button>
+      {user?.role === 1 && (
+        <div id="actions" style={{ justifyContent: "right" }}>
+          <div className="item">
+            <button className="sign-up" onClick={handleLogout}>
+              Đăng xuất
+            </button>
+          </div>
+        </div>
+      )}
+
       <Routes>
         <Route path="/" element={<Auth />}>
           <Route path="/" element={<Login />} />
