@@ -1,51 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Menu from "../components/Menu";
 import { useAppContext } from "../Context";
 import { Link } from "react-router-dom";
-import { getfb } from "../api/auth";
 
 const Object = (props) => {
-  const { list_products } = props;
-  const [name, setName] = useState("");
-  const [products, setProducts] = useState(list_products);
-  const [fb, setFb] = useState([]);
+
+  const {list_products} = props
+
   const { handleLogout } = useAppContext();
-  const onValueChange = (e) => {
-    setName(e.target.value);
-  };
-  const handleSearch = () => {
-    const data_search = list_products.filter((item) => {
-      if (item.name.toLowerCase().includes(name.toLowerCase())) {
-        return item;
-      }
-    });
-    setProducts(data_search);
-  };
 
-  const onSelectCategory = (category) => {
-    const data_search = list_products.filter((item) => {
-      if (item.category === category) {
-        return item;
-      }
-    });
-    setProducts(data_search);
-  };
+  const search = (e) => {
+    e.preventDefault()
 
-  const onSelectColor = (color) => {
-    const data_search = list_products.filter((item) => {
-      if (item.color === color) {
-        return item;
-      }
-    });
-    setProducts(data_search);
-  };
+    const key_search = document.querySelector(".text_search").value
 
-  useEffect(() => {
-    getfb().then((res) => {
-      setFb(res.data);
-    });
-  }, []);
-
+    props.setSearch(key_search)
+  }
   return (
     <div>
       <div id="wrapper">
@@ -85,12 +55,10 @@ const Object = (props) => {
 
           <div className="col-md-8 mx-auto">
             <div className="input-group pb-5">
-              <input
-                className="text_search"
-                placeholder="Tìm kiếm.."
-                onChange={onValueChange}
-              />
-              <button onClick={handleSearch}>Tìm</button>
+              <form onSubmit={(e) => search(e)} className="form_search">
+                <input className="text_search" placeholder="Tìm kiếm.."/>
+                <button>Tìm</button>
+              </form>
             </div>
           </div>
 
@@ -110,12 +78,9 @@ const Object = (props) => {
                     id="check1"
                     name="option1"
                     value="something"
-                    onClick={() => {
-                      onSelectCategory(1);
-                    }}
                   />
                   <label className="form-check-label" for="check1">
-                    Học liệu
+                  Học liệu
                   </label>
                 </div>
                 <div className="form-check">
@@ -125,67 +90,36 @@ const Object = (props) => {
                     id="check2"
                     name="option2"
                     value="something"
-                    onClick={() => {
-                      onSelectCategory(2);
-                    }}
                   />
                   <label className="form-check-label" for="check2">
-                    Đồ dùng cá nhân giá trị thấp
+                  Đồ dùng cá nhân giá trị thấp
                   </label>
                 </div>
                 <div className="form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="check3"
-                    onClick={() => {
-                      onSelectCategory(3);
-                    }}
-                  />
+                  <input type="checkbox" className="form-check-input" id="check3" />
                   <label className="form-check-label" for="check3">
-                    Đồ dùng cá nhân giá trị cao
+                  Đồ dùng cá nhân giá trị cao
                   </label>
                 </div>
 
                 <div className="form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="check4"
-                    onClick={() => {
-                      onSelectCategory(4);
-                    }}
-                  />
+                  <input type="checkbox" className="form-check-input" id="check4" />
                   <label className="form-check-label" for="check4">
-                    Đồ vật tính nhận diện xác định
+                  Đồ vật tính nhận diện xác định
                   </label>
                 </div>
 
                 <div className="form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="check5"
-                    onClick={() => {
-                      onSelectCategory(5);
-                    }}
-                  />
+                  <input type="checkbox" className="form-check-input" id="check4" />
                   <label className="form-check-label" for="check4">
-                    Đồ vật khó nhận diện cho người ngoài
+                  Đồ vật khó nhận diện cho người ngoài
                   </label>
                 </div>
 
                 <div className="form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="check6"
-                    onClick={() => {
-                      onSelectCategory(6);
-                    }}
-                  />
+                  <input type="checkbox" className="form-check-input" id="check4" />
                   <label className="form-check-label" for="check4">
-                    Đồ vật khác
+                  Đồ vật khác
                   </label>
                 </div>
                 <hr />
@@ -200,9 +134,6 @@ const Object = (props) => {
                     id="check1"
                     name="option1"
                     value="something"
-                    onClick={() => {
-                      onSelectColor(4);
-                    }}
                   />
                   <label className="form-check-label">Đen</label>
                 </div>
@@ -213,55 +144,42 @@ const Object = (props) => {
                     id="check2"
                     name="option2"
                     value="something"
-                    onClick={() => {
-                      onSelectColor(3);
-                    }}
                   />
                   <label className="form-check-label">Xanh</label>
                 </div>
                 <div className="form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="check3"
-                    onClick={() => {
-                      onSelectColor(1);
-                    }}
-                  />
+                  <input type="checkbox" className="form-check-input" id="check3" />
                   <label className="form-check-label">Đỏ</label>
                 </div>
 
                 <div className="form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="check4"
-                    onClick={() => {
-                      onSelectColor(2);
-                    }}
-                  />
+                  <input type="checkbox" className="form-check-input" id="check4" />
                   <label className="form-check-label">Vàng</label>
                 </div>
+                <hr />
+              </div>
+
+              <div className="group-header"></div>
+              <div className="group-body">
+                
                 <hr />
               </div>
             </div>
             <div className="col-9 list_products">
               {/* START LIST PRODUCTS */}
 
-              {products?.map((item) => (
-                <div className="item_products">
-                  <img src={item.img} width="100%" />
-                  <b className="name">
-                    <Link to={`./${item._id}`}>{item.name}</Link>
-                  </b>
-                  <p className="style_color">
-                    Màu sắc: <i>{item.color}</i>
-                  </p>
-                  <p className="desc">
-                    Chi tiết: <i>{item.detail}</i>
-                  </p>
-                </div>
-              ))}
+              {
+                list_products.map((item) => 
+                  <div className="item_products">
+                      <img src={item.img} width="100%" />
+                      <b className="name">
+                        <Link to={`./${item._id}`}>{item.name}</Link>
+                      </b>
+                      <p className="style_color">Màu sắc: <i>{item.color}</i></p>
+                      <p className="desc">Chi tiết: <i>{item.detail}</i></p>
+                  </div>
+                )
+              }
 
               {/* END START LIST PRODUCTS */}
             </div>
@@ -276,19 +194,51 @@ const Object = (props) => {
               </a>
             </div>
             <ul id="list-comment">
-              {fb?.map((item) => (
-                <li className="item">
-                  <div className="avatar">
-                    <img src="/avatar_1.png" alt="" />
-                  </div>
+              <li className="item">
+                <div className="avatar">
+                  <img src="/avatar_1.png" alt="" />
+                </div>
 
-                  <div className="name">{item.name}</div>
+                <div className="name">Nguyễn Thị Hồng Vân</div>
 
-                  <div className="text">
-                    <p>{item.fback}</p>
-                  </div>
-                </li>
-              ))}
+                <div className="text">
+                  <p>
+                    Rất cảm ơn ai đó đã nhặt được và gửi trả mình chiếc ví màu
+                    hồng mà mình lỡ để quên trên giảng đường S3 hôm trước. Cảm
+                    ơn bạn rất nhiều.
+                  </p>
+                </div>
+              </li>
+              <li className="item">
+                <div className="avatar">
+                  <img src="/avatar_2.png" alt="" />
+                </div>
+
+                <div className="name">Ngọc Thanh Vân</div>
+
+                <div className="text">
+                  <p>
+                    Rất cảm ơn ai đó đã nhặt được và gửi trả mình chiếc ví màu
+                    hồng mà mình lỡ để quên trên giảng đường S3 hôm trước. Cảm
+                    ơn bạn rất nhiều.
+                  </p>
+                </div>
+              </li>
+              <li className="item">
+                <div className="avatar">
+                  <img src="/avatar_3.png" alt="" />
+                </div>
+
+                <div className="name">Nguyễn Trần Vi</div>
+
+                <div className="text">
+                  <p>
+                    Rất cảm ơn ai đó đã nhặt được và gửi trả mình chiếc ví màu
+                    hồng mà mình lỡ để quên trên giảng đường S3 hôm trước. Cảm
+                    ơn bạn rất nhiều.
+                  </p>
+                </div>
+              </li>
             </ul>
             <div className="next-cmt">
               <a href="#">
