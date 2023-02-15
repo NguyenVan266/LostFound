@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Menu from "../components/Menu";
 import { useAppContext } from "../Context";
+import { sendfb } from "../api/auth";
 
 const Contact = (props) => {
   const { handleLogout } = useAppContext();
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    fback: "",
+  });
+  const onValueChange = (e) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+    console.log(name, value);
+  };
+  const handleSend = async (e) => {
+    e.preventDefault();
+    const response = await sendfb(data);
+    console.log(response);
+  };
   return (
     <div>
       <div id="wrapper">
@@ -69,11 +86,23 @@ const Contact = (props) => {
         <form>
           <div className="row">
             <div className="col-sm-12">
-              <input className="form-control" type="text" placeholder="Họ tên" />
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Họ tên"
+                name="name"
+                onChange={onValueChange}
+              />
               <br />
             </div>
             <div className="col-sm-12">
-              <input className="form-control" type="text" placeholder="Email" />
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Email"
+                name="email"
+                onChange={onValueChange}
+              />
               <br />
             </div>
             <div className="col-sm-12">
@@ -81,6 +110,8 @@ const Contact = (props) => {
                 className="form-control"
                 type="text"
                 placeholder="Số điện thoại"
+                name="phone"
+                onChange={onValueChange}
               />
               <br />
             </div>
@@ -88,6 +119,8 @@ const Contact = (props) => {
           <div className="row">
             <div className="col-sm-12">
               <textarea
+                onChange={onValueChange}
+                name="fback"
                 placeholder="Để lại lời nhắn tại đây..."
                 className="form-control"
                 rows="9"></textarea>
@@ -100,6 +133,7 @@ const Contact = (props) => {
                 className="btn btn-action pull-left"
                 type="submit"
                 value="Send message"
+                onClick={handleSend}
               />
             </div>
             <div className="col-sm-6 text-right"></div>

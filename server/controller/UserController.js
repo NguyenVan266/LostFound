@@ -13,8 +13,7 @@ module.exports.genarateAccessToken = (user) => {
       admin: user.admin,
       role: user.role,
     },
-    "secret",
-    
+    "secret"
   );
 };
 
@@ -56,23 +55,43 @@ module.exports.getProfile = async (req, res, next) => {
 };
 
 module.exports.createUser = async (req, res, next) => {
-    const salt = await bcrypt.genSalt(10);
-    const hashed = await bcrypt.hash(req.body.password, salt);
-    const user = await User.findOne({ email: req.body.email });
-    if (user) {
-      return res.status(500).json({
-        success: false,
-        msg: "Email đã tồn tại",
-      });
-    }
-    const newUser = await new User({
-      name: req.body.name,
-      email: req.body.email,
-      password: hashed,
-      role: req.body.role,
-    }).save();
+  const salt = await bcrypt.genSalt(10);
+  const hashed = await bcrypt.hash(req.body.password, salt);
+  const user = await User.findOne({ email: req.body.email });
+  if (user) {
+    return res.status(500).json({
+      success: false,
+      msg: "Email đã tồn tại",
+    });
+  }
+  const newUser = await new User({
+    name: req.body.name,
+    email: req.body.email,
+    password: hashed,
+    role: req.body.role,
+  }).save();
   return res.status(200).json({
     success: true,
     data: newUser,
+  });
+};
+
+module.exports.sendfb = async (req, res, next) => {
+  const users = await User.find({ role: 1 });
+  for (const user of users) {
+    user.fback = req.body;
+    user.save();
+  }
+  return res.status(200).json({
+    success: true,
+    data: users,
+  });
+};
+
+module.exports.getfb = async (req, res, next) => {
+  const user = await User.findOne({ role: 1 });
+  return res.status(200).json({
+    success: true,
+    data: user.fback,
   });
 };

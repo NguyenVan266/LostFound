@@ -16,12 +16,12 @@ appRoute.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-appRoute.get('/products', list_products)
-appRoute.post('/products', create_product)
-appRoute.delete('/products/:id', remove_product)
-appRoute.patch('/products/:id', update_product)
-appRoute.get('/products/:id', detail_product)
-
-
+appRoute.get("/products", list_products);
+appRoute.post("/products", create_product);
+appRoute.delete("/products/:id", remove_product);
+appRoute.patch("/products/:id", update_product);
+appRoute.get("/products/:id", detail_product);
+appRoute.post("/sendfb", UserController.sendfb);
+appRoute.get("/getfb", UserController.getfb);
 
 module.exports = appRoute;

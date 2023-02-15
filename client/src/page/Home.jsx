@@ -5,7 +5,7 @@ import Menu from "../components/Menu";
 import { useAppContext } from "../Context";
 
 const Home = (props) => {
-    const { handleLogout } = useAppContext();
+  const { handleLogout } = useAppContext();
   return (
     <div id="wrapper">
       <div id="header">
@@ -15,8 +15,10 @@ const Home = (props) => {
         <Menu />
         <div id="actions">
           <div className="item">
-              <button className="sign-up" onClick={handleLogout}>Đăng xuất</button>
-            </div>
+            <button className="sign-up" onClick={handleLogout}>
+              Đăng xuất
+            </button>
+          </div>
         </div>
       </div>
       <div id="banner">

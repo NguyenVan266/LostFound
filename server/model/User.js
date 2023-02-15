@@ -20,21 +20,21 @@ const UserSchema = new mongoose.Schema({
   },
   CCCD: { type: String },
   role: {
-    type: String,
+    type: Number,
     enum: [
       1, // admin
       2, // receivers
       3, // colleter
     ],
-    default: "user",
   },
-  fback:[{
-    name: String,
-    email: String,
-    phone: String,
-    fback: String,
-  }]
-}
-);
+  fback: [
+    {
+      name: String,
+      email: String,
+      phone: String,
+      fback: String,
+    },
+  ],
+});
 
 module.exports = mongoose.model("User", UserSchema);
