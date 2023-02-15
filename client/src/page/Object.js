@@ -156,41 +156,6 @@ const Object = (props) => {
                   <input type="checkbox" className="form-check-input" id="check4" />
                   <label className="form-check-label">Vàng</label>
                 </div>
-                <hr />
-              </div>
-
-              <div className="group-header">Theo thương hiệu</div>
-              <div className="group-body">
-                <div className="form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="check1"
-                    name="option1"
-                    value="something"
-                  />
-                  <label className="form-check-label">Option 1</label>
-                </div>
-                <div className="form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="check2"
-                    name="option2"
-                    value="something"
-                  />
-                  <label className="form-check-label">Option 2</label>
-                </div>
-                <div className="form-check">
-                  <input type="checkbox" className="form-check-input" id="check3" />
-                  <label className="form-check-label">Option 3</label>
-                </div>
-
-                <div className="form-check">
-                  <input type="checkbox" className="form-check-input" id="check4" />
-                  <label className="form-check-label">Option 4</label>
-                </div>
-                <hr />
               </div>
             </div>
             <div className="col-9 list_products">
