@@ -24,7 +24,7 @@ const productSchema = mongoose.Schema({
       1, // "Đỏ",
       2, // "Vàng",
       3, // "Xanh",
-      4, // "Đen"
+      4, // "Đen",
     ],
   },
   category: {
